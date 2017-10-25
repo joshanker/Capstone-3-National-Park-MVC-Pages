@@ -2,55 +2,68 @@
 @model ParkWithWeatherModel
 
 @{
-    Layout = "~/Shared/_LayoutPage1.cshtml";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
 
 
 <img src="@Url.Content("~/Content/img/" + Model.Park.ParkCode.ToLower() + ".jpg")" />
-        <div>@Model.Park.ParkCode </div>
-        <div>@Model.Park.ParkName  </div>
-        <div>@Model.Park.State </div>
-        <div>@Model.Park.Acreage </div>
-        <div>@Model.Park.Elevation </div>
-        <div>@Model.Park.MilesOfTrail </div>
-        <div>@Model.Park.NumberOfCampsites </div>
-        <div>@Model.Park.Climate </div>
-        <div>@Model.Park.YearFounded </div>
-        <div>@Model.Park.AnnualVisitorCount </div>
-        <div>@Model.Park.InspirationalQuote </div>
-        <div>@Model.Park.InspirationalQuoteSource </div>
-        <div>@Model.Park.ParkDescription </div>
-        <div>@Model.Park.EntryFee</div>
-        <div>@Model.Park.NumberOfAnimalSpecies </div>
-
-@foreach (var item in Model.Weather)
-{
-
-    bool WantsC = (bool)Session["WantsC"];
-
-    if (WantsC)
-    {
-    <div> @item.FiveDayForecastValue </div>
-    <div> @item.Forecast </div>
-    <div> @item.FtoC(item.High) </div>
-    <div> @item.FtoC(item.Low) </div>
-    }
-
-    else
-    {
-
-    <div> @item.FiveDayForecastValue </div>
-    <div> @item.Forecast </div>
-    <div> @item.High </div>
-    <div> @item.Low </div>
-
-    }
+<div>@Model.Park.ParkCode </div>
+<div>@Model.Park.ParkName  </div>
+<div>@Model.Park.State </div>
+<div>@Model.Park.Acreage </div>
+<div>@Model.Park.Elevation </div>
+<div>@Model.Park.MilesOfTrail </div>
+<div>@Model.Park.NumberOfCampsites </div>
+<div>@Model.Park.Climate </div>
+<div>@Model.Park.YearFounded </div>
+<div>@Model.Park.AnnualVisitorCount </div>
+<div>@Model.Park.InspirationalQuote </div>
+<div>@Model.Park.InspirationalQuoteSource </div>
+<div>@Model.Park.ParkDescription </div>
+<div>@Model.Park.EntryFee</div>
+<div>@Model.Park.NumberOfAnimalSpecies </div>
 
 
+
+@{ 
+    int counter = 1;
 }
 
+<div class="AllWeather">
+
+    @foreach (var item in Model.Weather)
+    {
+        <span class= "weather-@counter.ToString()">
+            @{
+                bool WantsC = (bool)Session["WantsC"];
+
+
+                     <span><img class="weatherImage" src="@Url.Content("~/Content/img/weather/" + item.Forecast.Replace(" ","").ToLower() + ".png")"  /></span>
+
+
+
+
+
+
+                <span> @item.Forecast </span>
+
+                if (WantsC)
+                {                  
+                    <span> @item.FtoC(item.High) </span>
+                    <span> @item.FtoC(item.Low) </span>
+                }
+                else
+                {
+                    <span> @item.High</span>
+                    <span> @item.Low </span>
+                }
+                counter++;
+            }
+        </span>
+                }
+
+</div>
 
 <a href="@Url.Action("Detail", "Home", new { parkCode = Model.Park.ParkCode , WantsC = true})">View in Celsius</a>
-
 

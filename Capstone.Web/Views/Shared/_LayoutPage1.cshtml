@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width" />
         <title>@ViewBag.Title</title>
        
-
+        <link href="~/Content/Site.css" rel="stylesheet" />
 
     </head>
     <body>
-
+        <span></span><a href="@Url.Action("Index", "Home")">Index</a></span> <span><a href="@Url.Action("Survey", "Home")">Survey</a></span> <span><a href="@Url.Action("SurveyResult", "Home")">Survey Results</a></span>
         <div>
             @RenderBody()
         </div>

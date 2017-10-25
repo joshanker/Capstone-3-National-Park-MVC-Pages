@@ -32,10 +32,10 @@ namespace Capstone.Web.Controllers
         public ActionResult Detail(string parkCode = "", bool WantsC = false)
         {
 
-            //if (parkCode == "")
-            //{
-            //    return RedirectToAction("Index");
-            //}
+            if (parkCode == "")
+            {
+                return RedirectToAction("Index");
+            }
 
 
             Session["WantsC"] = WantsC;
@@ -57,7 +57,7 @@ namespace Capstone.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Survey");
+                return View("Survey", survey);
             }
             else
             {

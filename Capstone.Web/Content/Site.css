@@ -25,3 +25,8 @@ textarea {
     max-width: 280px;
 }
 
+.weather-1{
+    max-width: 10%;
+    border:solid;
+}
+

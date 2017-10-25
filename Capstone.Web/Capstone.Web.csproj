@@ -128,7 +128,7 @@
     <Content Include="Content\img\mrnp.jpg" />
     <Content Include="Content\img\rmnp.jpg" />
     <Content Include="Content\img\weather\cloudy.png" />
-    <Content Include="Content\img\weather\partlyCloudy.png" />
+    <Content Include="Content\img\weather\partlycloudy.png" />
     <Content Include="Content\img\weather\rain.png" />
     <Content Include="Content\img\weather\snow.png" />
     <Content Include="Content\img\weather\sunny.png" />
@@ -170,7 +170,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Shared\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Survey.cshtml" />

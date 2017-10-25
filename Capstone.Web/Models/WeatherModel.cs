@@ -14,12 +14,11 @@ namespace Capstone.Web.Models
         public string Forecast { get; set; }
         
 
-        public double FtoC(int temp)
+        public double FtoC(double temp)
         {
-            double c = (5 / 9) * (temp - 32);
-
-
-            return c;
+            double c = .55 * (temp - 32);
+            int c2 = Convert.ToInt32(c);
+            return c2;
         }
         
 
