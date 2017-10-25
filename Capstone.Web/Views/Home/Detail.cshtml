@@ -34,12 +34,12 @@
 
     @foreach (var item in Model.Weather)
     {
-        <span class= "weather-@counter.ToString()">
+        <div class= "weather-@counter.ToString()">
             @{
                 bool WantsC = (bool)Session["WantsC"];
 
 
-                     <span><img class="weatherImage" src="@Url.Content("~/Content/img/weather/" + item.Forecast.Replace(" ","").ToLower() + ".png")"  /></span>
+                     <div><img class="weatherImage" src="@Url.Content("~/Content/img/weather/" + item.Forecast.Replace(" ","").ToLower() + ".png")"  /></div>
 
 
 
@@ -60,7 +60,7 @@
                 }
                 counter++;
             }
-        </span>
+        </div>
                 }
 
 </div>
