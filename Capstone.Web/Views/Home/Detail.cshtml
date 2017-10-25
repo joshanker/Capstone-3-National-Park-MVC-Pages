@@ -1,0 +1,31 @@
+﻿@using Capstone.Web.Models;
+@model ParkWithWeatherModel
+
+@{
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<img src="@Url.Content("~/Content/img/" + Model.Park.ParkCode.ToLower() + ".jpg")" />
+        <div>@Model.Park.ParkCode </div>
+        <div>@Model.Park.ParkName  </div>
+        <div>@Model.Park.State </div>
+        <div>@Model.Park.Acreage </div>
+        <div>@Model.Park.Elevation </div>
+        <div>@Model.Park.MilesOfTrail </div>
+        <div>@Model.Park.NumberOfCampsites </div>
+        <div>@Model.Park.Climate </div>
+        <div>@Model.Park.YearFounded </div>
+        <div>@Model.Park.AnnualVisitorCount </div>
+        <div>@Model.Park.InspirationalQuote </div>
+        <div>@Model.Park.InspirationalQuoteSource </div>
+        <div>@Model.Park.ParkDescription </div>
+        <div>@Model.Park.EntryFee</div>
+        <div>@Model.Park.NumberOfAnimalSpecies </div>
+
+@foreach (var item in Model.Weather)
+{
+    <div>@item.FiveDayForecastValue</div>
+    <div>@item.Forecast</div>
+    <div>@item.High</div>
+    <div>@item.Low</div>
+}

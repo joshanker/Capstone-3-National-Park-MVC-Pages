@@ -1,0 +1,21 @@
+﻿@using Capstone.Web.Models;
+@model List<ParkModel>
+
+
+
+@{
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+
+    <div><a href="@Url.Action("Detail", "Home", new { parkCode = item.ParkCode })"><img src="@Url.Content("~/Content/img/" + item.ParkCode.ToLower() + ".jpg")" /></a></div>
+    <div>@item.ParkName</div>
+    <div>@item.State</div>
+    <div>@item.ParkDescription</div>
+
+
+
+}
