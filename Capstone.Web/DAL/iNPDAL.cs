@@ -14,6 +14,8 @@ namespace Capstone.Web.DAL
         List<ParkModel> GetAllParks();
         ParkModel GetParkFromCode(string parkCode);
         List<WeatherModel> GetWeather(string parkCode);
+        bool SaveSurvey(SurveyModel survey);
+        ParkModel GetMostPopularPark();
 
     }
 }

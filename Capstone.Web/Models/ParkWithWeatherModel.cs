@@ -10,6 +10,7 @@ namespace Capstone.Web.Models
 
         public ParkModel Park;
         public List<WeatherModel> Weather;
+        
 
 
         public ParkWithWeatherModel(ParkModel park, List<WeatherModel> weather)

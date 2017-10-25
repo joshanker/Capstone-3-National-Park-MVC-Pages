@@ -20,6 +20,8 @@ namespace Capstone.Web
         private const string SQL_GetAllParks = "select * from park";
         private const string SQL_GetParkFromCode = "select * from park where parkCode = @parkCode";
         private const string SQL_GetWeatherFromParkCode = "select * from weather where parkCode = @parkCode";
+        private const string SQL_SaveSurvey = "insert into survey_result values (@parkCode, @email, @state, @activitylevel)";
+        private const string SQL_GetMostPopularPark = "select top 1 parkCode from survey_result group by parkCode order by COUNT(parkCode) desc";
 
         public List<ParkModel> GetAllParks()
         {
@@ -134,6 +136,65 @@ namespace Capstone.Web
                 throw;
             }
             return weatherList;
+
+        }
+
+        public bool SaveSurvey(SurveyModel survey)
+        {
+
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(SQL_SaveSurvey, conn);
+                    cmd.Parameters.AddWithValue("@parkCode", survey.ParkCode);
+                    cmd.Parameters.AddWithValue("@email", survey.EmailAddress);
+                    cmd.Parameters.AddWithValue("@state", survey.State);
+                    cmd.Parameters.AddWithValue("@activitylevel", survey.ActivityLevel);
+                    int rowsAffected=cmd.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+            
+        }
+
+        public ParkModel GetMostPopularPark()
+        {
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand cmd = new SqlCommand(SQL_GetMostPopularPark, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string winner= Convert.ToString(reader["parkCode"]);
+
+                        NPDAL newDAL = new NPDAL();
+
+                        ParkModel p = newDAL.GetParkFromCode(winner);
+                        
+                        park = p;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+            return park;
+
 
         }
     }

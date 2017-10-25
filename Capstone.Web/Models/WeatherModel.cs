@@ -12,5 +12,18 @@ namespace Capstone.Web.Models
         public int Low { get; set; }
         public int High { get; set; }
         public string Forecast { get; set; }
+        
+
+        public double FtoC(int temp)
+        {
+            double c = (5 / 9) * (temp - 32);
+
+
+            return c;
+        }
+        
+
+
+
     }
 }

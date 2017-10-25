@@ -12,6 +12,8 @@ namespace Capstone.Web.Controllers
     {
         //NPDAL dal = new NPDAL();
         iNPDAL dal = new NPDAL();
+        
+
         public HomeController(iNPDAL npdal)
         {
             this.dal = npdal;
@@ -21,20 +23,57 @@ namespace Capstone.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-           
+            
             List<ParkModel> model = dal.GetAllParks();
 
             return View("Index", model);
         }
-        
-        public ActionResult Detail(string parkCode)
+
+        public ActionResult Detail(string parkCode = "", bool WantsC = false)
         {
 
+            //if (parkCode == "")
+            //{
+            //    return RedirectToAction("Index");
+            //}
+
+
+            Session["WantsC"] = WantsC;
             List<WeatherModel> wmodel = dal.GetWeather(parkCode);
             ParkModel pmodel = dal.GetParkFromCode(parkCode);
             ParkWithWeatherModel model = new ParkWithWeatherModel(pmodel, wmodel);
             
             return View("Detail", model);
+        }
+
+        public ActionResult Survey()
+        {
+            SurveyModel model = new SurveyModel();
+            return View("Survey", model);
+        }
+
+        [HttpPost]
+        public ActionResult Survey(SurveyModel survey)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Survey");
+            }
+            else
+            {
+                dal.SaveSurvey(survey);
+            }
+
+            return RedirectToAction("SurveyResult");
+        }
+
+
+        public ActionResult SurveyResult()
+        {
+            ParkModel model = dal.GetMostPopularPark();
+
+
+            return View("SurveyResult", model);
         }
 
 
