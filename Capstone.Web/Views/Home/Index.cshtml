@@ -12,11 +12,14 @@
 @foreach (var item in Model)
 {
 
-    <div><a href="@Url.Action("Detail", "Home", new { parkCode = item.ParkCode })"><img src="@Url.Content("~/Content/img/" + item.ParkCode.ToLower() + ".jpg")" /></a></div>
-    <div>@item.ParkName</div>
-    <div>@item.State</div>
-    <div>@item.ParkDescription</div>
+    <div class="index-div">
+        <div class="index-name">@item.ParkName,   @item.State</div>
+        
+    <a href="@Url.Action("Detail", "Home", new { parkCode = item.ParkCode })"><img class="index-image" src="@Url.Content("~/Content/img/" + item.ParkCode.ToLower() + ".jpg")" /></a></div>
 
+    <div class="index-text">@item.ParkDescription</div>
+
+    <hr width="75%" />
 
 
 }

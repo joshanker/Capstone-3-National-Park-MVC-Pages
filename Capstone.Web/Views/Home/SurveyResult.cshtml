@@ -7,18 +7,21 @@
 
 
 <img src="@Url.Content("~/Content/img/" + Model.ParkCode.ToLower() + ".jpg")" />
-<div>@Model.ParkCode </div>
-<div>@Model.ParkName  </div>
-<div>@Model.State </div>
-<div>@Model.Acreage </div>
-<div>@Model.Elevation </div>
-<div>@Model.MilesOfTrail </div>
-<div>@Model.NumberOfCampsites </div>
-<div>@Model.Climate </div>
-<div>@Model.YearFounded </div>
-<div>@Model.AnnualVisitorCount </div>
-<div>@Model.InspirationalQuote </div>
-<div>@Model.InspirationalQuoteSource </div>
-<div>@Model.ParkDescription </div>
-<div>@Model.EntryFee</div>
-<div>@Model.NumberOfAnimalSpecies </div>
+<ul>
+    <li>ParkCode: @Model.ParkCode </li>
+    <li>ParkName: @Model.ParkName  </li>
+    <li>State: @Model.State </li>
+    <li>Acreage: @Model.Acreage </li>
+    <li>Elevation: @Model.Elevation </li>
+    <li>Miles Of Trail: @Model.MilesOfTrail </li>
+    <li>Number Of Campsites: @Model.NumberOfCampsites </li>
+    <li>Climate: @Model.Climate </li>
+    <li>Year Founded: @Model.YearFounded </li>
+    <li>Annual Visitor Count: @Model.AnnualVisitorCount </li>
+    <li>Inspirational Quote: @Model.InspirationalQuote </li>
+    <li>Inspirational Quote Source: @Model.InspirationalQuoteSource </li>
+    <li>Park Description: @Model.ParkDescription </li>
+    <li>Entry Fee: @Model.EntryFee</li>
+    <li>Number Of Animal Species: @Model.NumberOfAnimalSpecies </li>       
+</ul>
+

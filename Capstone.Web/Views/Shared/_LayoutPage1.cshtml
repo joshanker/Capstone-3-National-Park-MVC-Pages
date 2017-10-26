@@ -1,19 +1,61 @@
 ﻿<!DOCTYPE html>
 
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>@ViewBag.Title</title>
-       
-        <link href="~/Content/Site.css" rel="stylesheet" />
-        <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    </head>
-    <body>
-        <span></span><a href="@Url.Action("Index", "Home")">Index</a></span> <span><a href="@Url.Action("Survey", "Home")">Survey</a></span> <span><a href="@Url.Action("SurveyResult", "Home")">Survey Results</a></span>
-        <div>
-            @RenderBody()
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body>
+    @*<body id="bootstrap-override">*@
+    @*<header class="headerclass"><img class="headerimg" src="~/Content/img/clipart/logo.png" /></header>*@
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">*@
+    @*<div class="container">
+        <div class="navbar-header">*@
+
+    @*<a href="@Url.Action("Index", "Home")">Index</a>
+                    <a href="@Url.Action("Survey", "Home")">Survey</a>
+                    <a href="@Url.Action("SurveyResult", "Home")">Survey Results</a>
+                 </div>
+            </div>
+
         </div>
-    </body>
-    </html>
+
+
+        <span> <span></span> <span></span>
+        <div>*@
+
+    <header class="header">
+
+        <img src="~/Content/img/clipart/logo.png" alt="National Parks Logo" />
+
+    </header>
+    <nav>
+        <h2>Explore Your National Parks</h2>
+        <p> Use these state of the art web applications to learn more about your national parks! </p>
+        <ul class="MenuBar">
+            <li>@Html.ActionLink("View National Parks", "Index", "Home")</li>
+
+            <li>@Html.ActionLink("Vote for your Favorite Park", "Survey", "Home")</li>
+            <li>@Html.ActionLink("Most Popular Park", "SurveyResult", "Home")</li>
+            @*<li>@Html.ActionLink("Forum", "Submit", "ForumPost")</li>
+            <li>@Html.ActionLink("Store", "Index", "ShoppingCart")</li>*@
+
+        </ul>
+    </nav>
+
+
+
+    <section class="centeredPanel">
+        @RenderBody()
+    </section>
+    </div>
+</body>
+</html>
 
 
