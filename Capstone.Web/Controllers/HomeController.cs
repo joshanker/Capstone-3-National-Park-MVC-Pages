@@ -37,8 +37,10 @@ namespace Capstone.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-
-            Session["WantsC"] = WantsC;
+          
+            
+                Session["WantsC"] = WantsC;
+            
             List<WeatherModel> wmodel = dal.GetWeather(parkCode);
             ParkModel pmodel = dal.GetParkFromCode(parkCode);
             ParkWithWeatherModel model = new ParkWithWeatherModel(pmodel, wmodel);

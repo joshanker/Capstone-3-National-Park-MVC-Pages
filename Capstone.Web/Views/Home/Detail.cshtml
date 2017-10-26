@@ -6,62 +6,137 @@
 }
 
 
+<div class="index-name">@Model.Park.ParkName , @Model.Park.State </div>
+<img class="survey-image" src="@Url.Content("~/Content/img/" + Model.Park.ParkCode.ToLower() + ".jpg")" />
 
-<img src="@Url.Content("~/Content/img/" + Model.Park.ParkCode.ToLower() + ".jpg")" />
-<div>@Model.Park.ParkCode </div>
-<div>@Model.Park.ParkName  </div>
-<div>@Model.Park.State </div>
-<div>@Model.Park.Acreage </div>
-<div>@Model.Park.Elevation </div>
-<div>@Model.Park.MilesOfTrail </div>
-<div>@Model.Park.NumberOfCampsites </div>
-<div>@Model.Park.Climate </div>
-<div>@Model.Park.YearFounded </div>
-<div>@Model.Park.AnnualVisitorCount </div>
-<div>@Model.Park.InspirationalQuote </div>
-<div>@Model.Park.InspirationalQuoteSource </div>
-<div>@Model.Park.ParkDescription </div>
-<div>@Model.Park.EntryFee</div>
-<div>@Model.Park.NumberOfAnimalSpecies </div>
+<div class="detail-info">
+    <div> Park Description: @Model.Park.ParkDescription </div>
+    <br />
+    <div class="info-text">
+        <div> Acreage: @Model.Park.Acreage Square Miles</div>
+        <div> Elevation: @Model.Park.Elevation Feet </div>
+        <div> Miles Of Trail: @Model.Park.MilesOfTrail Miles</div>
+        <div> Number Of Campsites: @Model.Park.NumberOfCampsites </div>
+        <div> Climate: @Model.Park.Climate </div>
+        <div> Year Founded: @Model.Park.YearFounded </div>
+        <div> Annual Visitor Count: @Model.Park.AnnualVisitorCount people </div>
+        <div> Entry Fee: $@Model.Park.EntryFee</div>
+        <div> Number Of Animal Species: @Model.Park.NumberOfAnimalSpecies </div>
+    </div>
+    <br />
+    <div class="italic">"@Model.Park.InspirationalQuote" </div>
+    <div class="italic"> -  @Model.Park.InspirationalQuoteSource </div>
 
 
+</div>
 
-@{ 
+
+@{
     int counter = 1;
 }
 
 <div class="AllWeather">
-
+    @{
+        List<string> weathereqs = new List<string>();
+    }
     @foreach (var item in Model.Weather)
     {
-        <div class= "weather-@counter.ToString()">
+        <div class="weather-@counter.ToString()">
             @{
                 bool WantsC = (bool)Session["WantsC"];
 
 
-                     <div><img class="weatherImage" src="@Url.Content("~/Content/img/weather/" + item.Forecast.Replace(" ","").ToLower() + ".png")"  /></div>
+                <div><img class="weatherImage" src="@Url.Content("~/Content/img/weather/" + item.Forecast.Replace(" ", "").ToLower() + ".png")" /></div>
 
 
 
 
 
 
-                <span> @item.Forecast </span>
+                <div> @item.Forecast </div>
 
                 if (WantsC)
-                {                  
-                    <span> @item.FtoC(item.High) </span>
-                    <span> @item.FtoC(item.Low) </span>
+                {
+                    <span>High @item.FtoC(item.High) |</span>
+                    <span>Low @item.FtoC(item.Low) </span>
                 }
                 else
                 {
-                    <span> @item.High</span>
-                    <span> @item.Low </span>
+                    <span>High @item.High |</span>
+                    <span>Low @item.Low </span>
                 }
+
+
                 counter++;
+
+                if (item.High > 75)
+                {
+                    <div class="temp-warning">Bring an extra gallon of water!</div>
+                }
+                if (item.High - item.Low > 20)
+                {
+                    <div class="temp-warning">Wear breathable layers!</div>
+                }
+                if (item.Low < 20)
+                {
+                    <div class="temp-warning">Your nuts will freeze. No babies for you!</div>
+                }
+
             }
         </div>
+
                 }
+
+</div>
+
+<div class="packing-list">
+    <h3>Recommended packing list</h3>
+    @{
+        foreach (var item in Model.Weather)
+        {
+            if (item.Forecast == "rain")
+            {
+                weathereqs.Add("rain");
+            }
+            if (item.Forecast == "sunny")
+            {
+                weathereqs.Add("sunny");
+            }
+            if (item.Forecast == "snow")
+            {
+                weathereqs.Add("snow");
+            }
+            if (item.Forecast == "thunderstorms")
+            {
+                weathereqs.Add("thunderstorms");
+            }
+        }
+        <ul>
+            @{
+                if (weathereqs.Contains("rain"))
+                {
+                    <li>You should bring raingear and waterproof shoes</li>
+                }
+                if (weathereqs.Contains("sunny"))
+                {
+                    <li>You should bring sun block</li>
+                }
+                if (weathereqs.Contains("snow"))
+                {
+                    <li>You should bring snow shoes</li>
+                }
+                if (weathereqs.Contains("thunderstorms"))
+                {
+                    <li>You should seek shelter and avoid hiking on exposed ridges on days when we are expecting thunderstorms</li>
+                }
+            }
+        </ul>
+
+
+    }
+
+
+
 
 </div>
 

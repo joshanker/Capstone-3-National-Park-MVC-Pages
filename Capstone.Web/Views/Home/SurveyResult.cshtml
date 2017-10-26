@@ -5,23 +5,27 @@
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
+<div class="index-name">@Model.ParkName , @Model.State </div>
+<img class="survey-image" src="@Url.Content("~/Content/img/" + Model.ParkCode.ToLower() + ".jpg")" />
 
-<img src="@Url.Content("~/Content/img/" + Model.ParkCode.ToLower() + ".jpg")" />
-<ul>
-    <li>ParkCode: @Model.ParkCode </li>
-    <li>ParkName: @Model.ParkName  </li>
-    <li>State: @Model.State </li>
-    <li>Acreage: @Model.Acreage </li>
-    <li>Elevation: @Model.Elevation </li>
-    <li>Miles Of Trail: @Model.MilesOfTrail </li>
-    <li>Number Of Campsites: @Model.NumberOfCampsites </li>
-    <li>Climate: @Model.Climate </li>
-    <li>Year Founded: @Model.YearFounded </li>
-    <li>Annual Visitor Count: @Model.AnnualVisitorCount </li>
-    <li>Inspirational Quote: @Model.InspirationalQuote </li>
-    <li>Inspirational Quote Source: @Model.InspirationalQuoteSource </li>
-    <li>Park Description: @Model.ParkDescription </li>
-    <li>Entry Fee: @Model.EntryFee</li>
-    <li>Number Of Animal Species: @Model.NumberOfAnimalSpecies </li>       
-</ul>
+<div class="detail-info">
+    <div> Park Description: @Model.ParkDescription </div>
+    <br />
+    <div class="info-text">
+        <div> Acreage: @Model.Acreage Square Miles</div>
+        <div> Elevation: @Model.Elevation Feet </div>
+        <div> Miles Of Trail: @Model.MilesOfTrail Miles</div>
+        <div> Number Of Campsites: @Model.NumberOfCampsites </div>
+        <div> Climate: @Model.Climate </div>
+        <div> Year Founded: @Model.YearFounded </div>
+        <div> Annual Visitor Count: @Model.AnnualVisitorCount people </div>
+        <div> Entry Fee: $@Model.EntryFee</div>
+        <div> Number Of Animal Species: @Model.NumberOfAnimalSpecies </div>
+    </div>
+    <br />
+    <div class="italic">"@Model.InspirationalQuote" </div>
+    <div class="italic"> -  @Model.InspirationalQuoteSource </div>
+
+
+</div>
 
