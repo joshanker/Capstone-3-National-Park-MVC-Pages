@@ -4,9 +4,14 @@
 
 
 @{
+
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
     ViewBag.Title = "List of Parks";
-    bool weather = (bool)Session["WantsC"];
+    bool weather = false;
+    if (Session["WantsC"] != null)
+    {
+         weather = (bool)Session["WantsC"];
+    }
 }
 
 
