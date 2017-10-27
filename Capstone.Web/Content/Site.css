@@ -31,6 +31,7 @@ textarea {
     border: solid;
     display: inline-block;
     vertical-align: top;
+    background-color:white;
 }
 
 .weather-2 {
@@ -38,6 +39,7 @@ textarea {
     border: solid;
     display: inline-block;
     vertical-align: top;
+    background-color: white;
 }
 
 .weather-3 {
@@ -45,6 +47,7 @@ textarea {
     border: solid;
     display: inline-block;
     vertical-align: top;
+    background-color: white;
 }
 
 .weather-4 {
@@ -52,6 +55,7 @@ textarea {
     border: solid;
     display: inline-block;
     vertical-align: top;
+    background-color: white;
 }
 
 .weather-5 {
@@ -59,6 +63,7 @@ textarea {
     border: solid;
     display: inline-block;
     vertical-align: top;
+    background-color: white;
 }
 
 .AllWeather {
@@ -284,10 +289,11 @@ section.centeredPanel {
     width: 90%;
     vertical-align: top;
     min-height: 450px;
-    background-color: #FFF;
+    background-color: wheat;
     border-radius: 7px;
     margin: 20px auto;
     text-align:center;
+    
 }
 
     section.centeredPanel h2 {

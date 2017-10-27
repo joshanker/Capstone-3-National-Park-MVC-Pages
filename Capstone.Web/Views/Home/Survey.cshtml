@@ -10,7 +10,7 @@
 <form action="@Url.Action("Survey","Home")" method="post">
     <div class="form-group">
         <label for="parkCode">Which park is your favorite?</label>
-        @Html.DropDownList("parkCode", ViewBag.Parks as List<SelectListItem>, "Pick a park")
+       @Html.DropDownList("parkCode", ViewBag.Parks as List<SelectListItem>, "Pick a park")
         @*<select name="parkCode">
             @*
                 @foreach (var item in Model.Parks)

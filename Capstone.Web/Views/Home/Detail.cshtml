@@ -4,6 +4,7 @@
 @{
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
     bool WantsC = (bool)Session["WantsC"];
+    DateTime dt = DateTime.Now;
 }
 
 
@@ -34,18 +35,27 @@
 
 @{
     int counter = 1;
+    int day = 0;
 }
 
 <div class="AllWeather">
     @{
         List<string> weathereqs = new List<string>();
+        DayOfWeek today = DateTime.Today.DayOfWeek;
     }
     @foreach (var item in Model.Weather)
     {
         <div class="weather-@counter.ToString()">
             @{
+                <div>
 
-
+                    @(today + (day))
+                    @if ((today + day).ToString() == "Saturday")
+                    {
+                        today = 0;
+                        day = -1;
+                    }
+                </div>
 
                 <div><img class="weatherImage" src="@Url.Content("~/Content/img/weather/" + item.Forecast.Replace(" ", "").ToLower() + ".png")" /></div>
 
@@ -64,6 +74,7 @@
 
 
                 counter++;
+                day++;
 
                 if (item.High > 75)
                 {
