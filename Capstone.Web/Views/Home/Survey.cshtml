@@ -11,25 +11,7 @@
     <div class="form-group">
         <label for="parkCode">Which park is your favorite?</label>
        @Html.DropDownList("parkCode", ViewBag.Parks as List<SelectListItem>, "Pick a park")
-        @*<select name="parkCode">
-            @*
-                @foreach (var item in Model.Parks)
-                {
-                    <option value=@item.ParkCode>@item.ParkName</option>
-                }
-
-            
-            <option value="CVNP">Cuyahoga Valley National Park</option>
-            <option value="ENP">Everglades National Park</option>
-            <option value="GCNP">Grand Canyon National Park</option>
-            <option value="GNP">Glacier National Park</option>
-            <option value="GSMNP">Great Smoky Mountains National Park</option>
-            <option value="GTNP">Grand Teton National Park</option>
-            <option value="MRNP">Mount Rainier National Park</option>
-            <option value="RMNP">Rocky Mountain National Park</option>
-            <option value="YNP">Yellowstone National Park</option>
-            <option value="YNP2">Yosemite National Park</option>
-        </select>*@
+        
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.EmailAddress)

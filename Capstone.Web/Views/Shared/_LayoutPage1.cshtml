@@ -45,10 +45,17 @@
         <br />
         <div class="menu-bar-parent">
             <ul class="MenuBar">
-                <li class="list-item">@Html.ActionLink("View National Parks", "Index", "Home")</li>
-
-                <li class="list-item">@Html.ActionLink("Vote for your Favorite Park", "Survey", "Home")</li>
-                <li class="list-item">@Html.ActionLink("Most Popular Park", "SurveyResult", "Home")</li>
+                <a href="@Url.Action("Index","Home")" title="Go to parks">
+                    <li class="list-item">View Nation Parks</li>
+                </a>
+                <a href="@Url.Action("Survey","Home")" title="Go to survey">
+                    <li class="list-item">Vote for your Favorite Park</li>
+                </a>
+                <a href="@Url.Action("SurveyResult","Home")" title="Go to top park">
+                    <li class="list-item">Most Popular Park</li>
+                </a>
+                @*<li class="list-item">@Html.ActionLink("Vote for your Favorite Park", "Survey", "Home")</li>
+                <li class="list-item">@Html.ActionLink("Most Popular Park", "SurveyResult", "Home")</li>*@
                 @*<li>@Html.ActionLink("Forum", "Submit", "ForumPost")</li>
                 <li>@Html.ActionLink("Store", "Index", "ShoppingCart")</li>*@
 

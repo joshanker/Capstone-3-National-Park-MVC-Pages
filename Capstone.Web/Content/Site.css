@@ -72,7 +72,8 @@ textarea {
 
 .weatherImage {
     max-width: 100%;
-    border: solid;
+    border-top: solid;
+    border-bottom: solid;
     display: inline-block;
 }
 
@@ -289,10 +290,10 @@ section.centeredPanel {
     width: 90%;
     vertical-align: top;
     min-height: 450px;
-    background-color: wheat;
+    background-color: rgba(222, 222, 222, 0.9);
     border-radius: 7px;
     margin: 20px auto;
-    text-align:center;
+    text-align: center;
     
 }
 
@@ -439,6 +440,7 @@ ul {
     margin-top:10px;
     border-radius: 20px;
     z-index: 9999;
+    position: relative;
 }
 
 .button-link {
@@ -499,5 +501,12 @@ ul {
 }
 
 .list-item {
-    min-width:300px;
+    min-width: 200px;
+    opacity: .9;
+
+    
+}
+
+.MenuBar li:hover{
+    background-color: green;
 }
