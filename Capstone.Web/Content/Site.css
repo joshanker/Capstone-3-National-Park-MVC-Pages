@@ -120,6 +120,8 @@ p, label, div.form-field {
 
 header {
     margin: 25px;
+ 
+   
 }
 
     header h1 {
@@ -388,6 +390,7 @@ section.centeredPanel {
     width:100%;
     text-align:center;
     padding-top:10px;
+    
 }
 .index-name {
     padding-bottom:5px;
@@ -404,9 +407,6 @@ section.centeredPanel {
     margin-bottom:10px;
 }
 
-.MenuBar {
-    vertical-align:central;
-}
 
 ul {
     list-style-position: inside;
@@ -433,4 +433,65 @@ ul {
     margin-top:10px;
     border-radius: 20px;
     z-index: 9999;
+}
+
+.button-link {
+    display: inline-block;
+    width: 115px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 10%
+}
+
+.header-img
+{
+    background-color:white;
+    opacity: .8;
+    border-radius: 500px;
+    width: 50%;
+    margin:auto;
+    
+    
+}
+
+.white-bg-header {
+    background-color: white;
+    opacity: .8;
+    color: black;
+    margin:auto;
+    font-size:x-large;
+    
+}
+
+.white-bg-body {
+    background-color: white;
+    opacity: .9;
+    color: black;
+}
+
+.centered-header{
+    width:100%;
+    display:inline-block;
+    text-align:center;
+}
+.menu-bar-parent {
+    display: table;
+    text-align: center;
+    margin: auto;
+    vertical-align: auto;
+    width: 100%;
+}
+.MenuBar {
+    vertical-align: auto;
+    align-content:center;
+    
+}
+
+.list-item {
+    min-width:300px;
 }

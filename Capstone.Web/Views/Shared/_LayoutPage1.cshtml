@@ -31,22 +31,30 @@
         <div>*@
 
     <header class="header">
-
-        <img src="~/Content/img/clipart/logo.png" alt="National Parks Logo" />
-
+        <div class="header-img">
+            <img src="~/Content/img/clipart/logo.png" alt="National Parks Logo" />
+        </div>
     </header>
     <nav>
-        <h2>Explore Your National Parks</h2>
-        <p> Use these state of the art web applications to learn more about your national parks! </p>
-        <ul class="MenuBar">
-            <li>@Html.ActionLink("View National Parks", "Index", "Home")</li>
+        <div class="centered-header">
+            <span class="white-bg-header">Explore Your National Parks</span>
+            <br />
+            <span class="white-bg-body"> Use these state of the art web applications to learn more about your national parks! </span>
+        </div>
+        <br />
+        <br />
+        <div class="menu-bar-parent">
+            <ul class="MenuBar">
+                <li class="list-item">@Html.ActionLink("View National Parks", "Index", "Home")</li>
 
-            <li>@Html.ActionLink("Vote for your Favorite Park", "Survey", "Home")</li>
-            <li>@Html.ActionLink("Most Popular Park", "SurveyResult", "Home")</li>
-            @*<li>@Html.ActionLink("Forum", "Submit", "ForumPost")</li>
-            <li>@Html.ActionLink("Store", "Index", "ShoppingCart")</li>*@
+                <li class="list-item">@Html.ActionLink("Vote for your Favorite Park", "Survey", "Home")</li>
+                <li class="list-item">@Html.ActionLink("Most Popular Park", "SurveyResult", "Home")</li>
+                @*<li>@Html.ActionLink("Forum", "Submit", "ForumPost")</li>
+                <li>@Html.ActionLink("Store", "Index", "ShoppingCart")</li>*@
 
-        </ul>
+            </ul>
+
+        </div>
     </nav>
 
 
