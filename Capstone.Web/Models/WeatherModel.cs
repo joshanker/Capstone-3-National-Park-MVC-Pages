@@ -20,8 +20,13 @@ namespace Capstone.Web.Models
             int c2 = Convert.ToInt32(c);
             return c2;
         }
-        
 
+
+        public string UppercaseFirst(string s)
+        {
+
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
 
 
     }

@@ -49,12 +49,7 @@
 
                 <div><img class="weatherImage" src="@Url.Content("~/Content/img/weather/" + item.Forecast.Replace(" ", "").ToLower() + ".png")" /></div>
 
-
-
-
-
-
-                <div> @item.Forecast </div>
+                <div> @item.UppercaseFirst(@item.Forecast) </div>
 
                 if (WantsC)
                 {
@@ -145,10 +140,12 @@
     if (WantsC == false)
     {
 
-        <a class="button-link" href="@Url.Action("Detail", "Home", new { parkCode = Model.Park.ParkCode, WantsC = true })">View in Celcius</a>
+        <a class="button-link" href="@Url.Action("Detail", "Home", new { parkCode = Model.Park.ParkCode, WantsC = true })">View in Celsius</a>
     }
     else
     {
         <a class="button-link" href="@Url.Action("Detail", "Home", new { parkCode = Model.Park.ParkCode, WantsC = false })">View in Farenheight</a>
     }
+
 }
+

@@ -162,6 +162,7 @@
     </Compile>
     <Compile Include="Models\ParkModel.cs" />
     <Compile Include="DAL\NPDAL.cs" />
+    <Compile Include="Models\ParksWithSurveyModel.cs" />
     <Compile Include="Models\ParkWithWeatherModel.cs" />
     <Compile Include="Models\SurveyModel.cs" />
     <Compile Include="Models\WeatherModel.cs" />

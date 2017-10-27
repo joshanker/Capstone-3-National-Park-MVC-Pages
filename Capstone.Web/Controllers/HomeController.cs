@@ -12,7 +12,7 @@ namespace Capstone.Web.Controllers
     {
         //NPDAL dal = new NPDAL();
         iNPDAL dal = new NPDAL();
-        
+
 
         public HomeController(iNPDAL npdal)
         {
@@ -23,7 +23,7 @@ namespace Capstone.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            
+
             List<ParkModel> model = dal.GetAllParks();
 
             return View("Index", model);
@@ -36,22 +36,29 @@ namespace Capstone.Web.Controllers
             {
                 return RedirectToAction("Index");
             }
+            Session["WantsC"] = WantsC;
 
-          
-            
-                Session["WantsC"] = WantsC;
-            
             List<WeatherModel> wmodel = dal.GetWeather(parkCode);
             ParkModel pmodel = dal.GetParkFromCode(parkCode);
             ParkWithWeatherModel model = new ParkWithWeatherModel(pmodel, wmodel);
-            
+
             return View("Detail", model);
         }
 
         public ActionResult Survey()
         {
-            SurveyModel model = new SurveyModel();
-            return View("Survey", model);
+            var parks = dal.GetAllParks();
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var park in parks)
+            {
+                listItems.Add(new SelectListItem() { Text = park.ParkName, Value = park.ParkCode });
+            }
+            ViewBag.Parks = listItems;
+
+            SurveyModel survey = new SurveyModel();
+           // ParksWithSurveyModel pwithm = new ParksWithSurveyModel(survey, dal.GetAllParks());
+            return View("Survey", survey);
         }
 
         [HttpPost]
@@ -59,7 +66,7 @@ namespace Capstone.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Survey", survey);
+                return View("Survey", survey);  // , new { survey = pwithm }
             }
             else
             {

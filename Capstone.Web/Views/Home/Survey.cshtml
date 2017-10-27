@@ -10,8 +10,15 @@
 <form action="@Url.Action("Survey","Home")" method="post">
     <div class="form-group">
         <label for="parkCode">Which park is your favorite?</label>
-        <select name="parkCode">
+        @Html.DropDownList("parkCode", ViewBag.Parks as List<SelectListItem>, "Pick a park")
+        @*<select name="parkCode">
+            @*
+                @foreach (var item in Model.Parks)
+                {
+                    <option value=@item.ParkCode>@item.ParkName</option>
+                }
 
+            
             <option value="CVNP">Cuyahoga Valley National Park</option>
             <option value="ENP">Everglades National Park</option>
             <option value="GCNP">Grand Canyon National Park</option>
@@ -22,7 +29,7 @@
             <option value="RMNP">Rocky Mountain National Park</option>
             <option value="YNP">Yellowstone National Park</option>
             <option value="YNP2">Yosemite National Park</option>
-        </select>
+        </select>*@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.EmailAddress)
@@ -38,13 +45,13 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.ActivityLevel)
-    @Html.RadioButtonFor(m => m.ActivityLevel, "Inactive", false) Inactive
-    @Html.RadioButtonFor(m => m.ActivityLevel, "Sedentary", false) Sedentary
-    @Html.RadioButtonFor(m => m.ActivityLevel, "Active", false) Active
-    @Html.RadioButtonFor(m => m.ActivityLevel, "Extremely Active", false) Extremely Active
+        @Html.RadioButtonFor(m => m.ActivityLevel, "Inactive", false) Inactive
+        @Html.RadioButtonFor(m => m.ActivityLevel, "Sedentary", false) Sedentary
+        @Html.RadioButtonFor(m => m.ActivityLevel, "Active", false) Active
+        @Html.RadioButtonFor(m => m.ActivityLevel, "Extremely Active", false) Extremely Active
         @Html.ValidationMessageFor(m => m.ActivityLevel)
 
-</div>
-<button>Submit Survey</button>
+    </div>
+    <button>Submit Survey</button>
 </form>
 
