@@ -66,6 +66,14 @@ namespace Capstone.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var parks = dal.GetAllParks();
+                List<SelectListItem> listItems = new List<SelectListItem>();
+
+                foreach (var park in parks)
+                {
+                    listItems.Add(new SelectListItem() { Text = park.ParkName, Value = park.ParkCode });
+                }
+                ViewBag.Parks = listItems;
                 return View("Survey", survey);  // , new { survey = pwithm }
             }
             else
