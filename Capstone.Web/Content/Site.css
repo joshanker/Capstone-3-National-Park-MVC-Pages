@@ -473,6 +473,7 @@ ul {
     color: black;
     margin:auto;
     font-size:x-large;
+    border-radius:10px;
     
 }
 
@@ -480,6 +481,7 @@ ul {
     background-color: white;
     opacity: .9;
     color: black;
+    border-radius: 10px;
 }
 
 .centered-header{
