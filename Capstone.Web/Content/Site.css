@@ -28,7 +28,7 @@ textarea {
 
 .weather-1 {
     max-width: 30%;
-    border: solid;
+    border: solid thin;
     display: inline-block;
     vertical-align: top;
     background-color:white;
@@ -36,7 +36,7 @@ textarea {
 
 .weather-2 {
     max-width: 17%;
-    border: solid;
+    border: solid thin;
     display: inline-block;
     vertical-align: top;
     background-color: white;
@@ -44,7 +44,7 @@ textarea {
 
 .weather-3 {
     max-width: 17%;
-    border: solid;
+    border: solid thin;
     display: inline-block;
     vertical-align: top;
     background-color: white;
@@ -52,7 +52,7 @@ textarea {
 
 .weather-4 {
     max-width: 17%;
-    border: solid;
+    border: solid thin;
     display: inline-block;
     vertical-align: top;
     background-color: white;
@@ -60,7 +60,7 @@ textarea {
 
 .weather-5 {
     max-width: 17%;
-    border: solid;
+    border: solid thin;
     display: inline-block;
     vertical-align: top;
     background-color: white;
@@ -72,8 +72,8 @@ textarea {
 
 .weatherImage {
     max-width: 100%;
-    border-top: solid;
-    border-bottom: solid;
+    border-top: solid thin;
+    border-bottom: solid thin;
     display: inline-block;
 }
 
@@ -510,7 +510,7 @@ ul {
 }
 
 .MenuBar li:hover{
-    background-color: green;
+    background-color: forestgreen;
     color: white;
 
 }
